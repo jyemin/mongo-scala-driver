@@ -9,7 +9,5 @@ set -o errexit  # Exit the script with error if any of the commands fail
 
 echo "Compiling Scala driver with jdk8"
 
-# We always compile with the latest version of java
-export JAVA_HOME="/opt/java/jdk8"
-./sbt version
-./sbt clean compile
+./sbt -java-home /opt/java/jdk8 version
+./sbt -java-home /opt/java/jdk8 clean compile

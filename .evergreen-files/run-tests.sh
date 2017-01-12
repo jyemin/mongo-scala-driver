@@ -7,13 +7,11 @@ set -o errexit  # Exit the script with error if any of the commands fail
 #       SCALA_VERSION   Sets the Scala version
 #       TEST_TYPE       Sets the test type.  One of "it", "unit"
 
-JAVA_HOME="/opt/java/${JDK}"
-
 ############################################
 #            Main Program                  #
 ############################################
 
-echo "Running $TEST_TYPE tests with Scala Version $SCALA_VERSION for $TOPOLOGY and connecting to $MONGODB_URI"
+echo "Running $TEST_TYPE tests with Scala Version $SCALA_VERSION"
 
-JAVA_HOME="/opt/java/jdk8"
-./sbt ++${SCALA_VERSION} ${TEST_TYPE}:test
+./sbt -java-home /opt/java/jdk8 version
+./sbt -java-home /opt/java/jdk8 ++${SCALA_VERSION} ${TEST_TYPE}:test

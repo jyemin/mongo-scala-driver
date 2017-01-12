@@ -214,7 +214,7 @@ functions:
         working_dir: "src"
         script: |
           ${PREPARE_SHELL}
-          MONGODB_URI="SCALA_VERSION="${SCALA_VERSION}" TEST_TYPE="unit" .evergreen/run-tests.sh
+          SCALA_VERSION="${SCALA_VERSION}" TEST_TYPE="unit" .evergreen/run-tests.sh
 
   "run integration tests":
     - command: shell.exec
@@ -223,7 +223,7 @@ functions:
         working_dir: "src"
         script: |
           ${PREPARE_SHELL}
-          MONGODB_URI="SCALA_VERSION="${SCALA_VERSION}" TEST_TYPE="it" .evergreen/run-tests.sh
+          SCALA_VERSION="${SCALA_VERSION}" TEST_TYPE="it" .evergreen/run-tests.sh
 
   "cleanup":
     - command: shell.exec
